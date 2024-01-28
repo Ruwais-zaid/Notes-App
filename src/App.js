@@ -1,25 +1,18 @@
-import React from "react";
-import Header from './components/header.jsx'
-import API from "./api.js"
-function createEntry(term){
-  return <div>
-    <Header key={term.id} no={term.no} read={term.read} views={term.views} comment={term.comment} color={term.color}/>
+import React, { useState } from "react";
+import Header from "./components/header.jsx"
+import AddNote from './components/Addnote.jsx'
 
-  </div>
-  
-}
 function App() {
+  
   return (
-    <div className="w-full h-[200vh] bg-contain bg-violet-200">
-      <div className="absolute flex space-x-30 xl:flex-row top-28 left-20 md:flex-col md:items-center md:right-4 md:space-y-5 " >   
-      {
-        API.map(createEntry)
-      }     
-
-      </div>
+    <div className="flex flex-row p-6 bg-black h-[1000vh]">
+      <div className="flex flex-col gap-7"> 
+        <span className="text-[30px] font-thin text-white">My <br /> Notes</span>
+        <button className="text-white border-[1px]  rounded-xl  p-2 flex justify-between" style={{ width: '80px' }}>ALL <span className="border-[1px] bg-gray-700 rounded-full text-[9px] p-1 ">23</span></button>
+        <AddNote />
       </div>
 
-      
+    </div>
   )
 }
 
